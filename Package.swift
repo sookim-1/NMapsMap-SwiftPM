@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NMapsMap",
-            url: "https://github.com/sookim-1/NMapsMap-SwiftPM/releases/download/v3.1.0/NMapsMap.xcframework.zip",
-            checksum: "80ca632375fa19b59ed612bbd95bf965aca226c1e581a1e02d174e6e54be070c"
+            url: "https://github.com/sookim-1/NMapsMap-SwiftPM/releases/download/v3.2.0/NMapsMap.xcframework.zip",
+            checksum: "8851d15a36cb86489e77addddf7533e1fa63817c55d1930187e3f0d160084f4b"
         )
     ]
 )
