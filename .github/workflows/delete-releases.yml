@@ -17,7 +17,7 @@ jobs:
         id: list_releases
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const passedTags = JSON.parse(context.payload.inputs.tags);
             const allReleases = (await github.repos.listReleases({
@@ -32,7 +32,7 @@ jobs:
         if: ${{ steps.list_releases.outputs.releasesToDelete != '[]' }}
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const releasesToDelete = ${{ steps.list_releases.outputs.releasesToDelete }};
             const deletingPromises = releasesToDelete.map((release) => {
@@ -55,7 +55,7 @@ jobs:
         id: list_tags
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const passedTags = JSON.parse(context.payload.inputs.tags);
             const allTags = (await github.repos.listTags({
@@ -70,7 +70,7 @@ jobs:
         if: ${{ steps.list_tags.outputs.tagsToDelete != '[]' }}
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const tagsToDelete = ${{ steps.list_tags.outputs.tagsToDelete }};
             const deletingPromises = tagsToDelete.map((tag) => {
