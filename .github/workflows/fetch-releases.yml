@@ -51,7 +51,7 @@ jobs:
         id: list_tags_working
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const workingRepoTags = (await github.repos.listTags({
               owner: context.repo.owner,
@@ -64,7 +64,7 @@ jobs:
         id: list_tags_upstream
         uses: actions/github-script@v3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const upstreamRepoTags = (await github.repos.listTags({
               owner: '${{ env.upstream_repo_owner }}',
